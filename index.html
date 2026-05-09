@@ -416,3 +416,52 @@
     </div>
 
     <div id="modal-compartir" class="fixed inset
+        -0 bg-slate-950/90 hidden z-[100] flex items-center justify-center p-6 backdrop-blur-md">
+        <div class="main-container w-full max-w-sm p-8 rounded-[3rem] text-center">
+            <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-envelope-open-text text-3xl text-secondary"></i>
+            </div>
+            <h3 class="text-xl font-extrabold uppercase mb-1">Orden Lista</h3>
+            <p id="modal-share-oc-id" class="text-sm text-slate-800 mb-2 font-mono font-bold bg-black/5 inline-block px-3 py-1 rounded-full">OC-XXX</p>
+            <p class="text-[11px] font-bold text-slate-600 mb-6 uppercase">Proveedor: <strong id="modal-share-prov-name" class="text-black"></strong></p>
+            
+            <div class="space-y-3 mb-6">
+                <button onclick="shareViaEmail()" class="w-full py-4 bg-slate-800 text-white rounded-2xl font-bold text-[11px] shadow flex flex-col items-center justify-center gap-1 uppercase hover:bg-slate-700 transition-colors">
+                    <div class="flex items-center gap-2"><i class="fa-regular fa-paper-plane text-lg"></i> Reenviar Orden por Email</div>
+                    <span id="share-email-dir" class="text-[9px] font-normal opacity-90 text-amber-500 mt-1 px-4 leading-tight">...</span>
+                </button>
+            </div>
+            <button onclick="closeModalCompartir()" class="w-full py-4 rounded-2xl font-bold text-xs uppercase text-slate-600 border border-black/10">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modal-recepcion" class="fixed inset-0 bg-slate-950/90 hidden z-[100] flex items-center justify-center p-6 backdrop-blur-md">
+        <div class="main-container w-full max-w-sm p-8 rounded-[3rem]">
+            <div class="flex flex-col items-center mb-6 text-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-check-circle text-3xl text-emerald-600"></i>
+                </div>
+                <h3 class="text-xl font-extrabold uppercase">Recibir Orden</h3>
+                <p id="modal-desc" class="text-[10px] text-slate-600 mt-2 font-bold"></p>
+            </div>
+            <input type="text" id="input-receptor" placeholder="¿Quién recibe?" class="input-premium mb-4 text-center">
+            <label for="input-foto" id="label-foto" class="block mb-6 p-6 rounded-2xl text-center border-dashed border-2 border-black/10 cursor-pointer bg-white transition-all">
+                <i class="fa-solid fa-camera text-2xl mb-2 block text-slate-400"></i>
+                <span class="text-[10px] font-extrabold uppercase text-slate-500" id="foto-status">Capturar Foto Remito</span>
+                <input type="file" id="input-foto" accept="image/*" capture="camera" class="hidden" onchange="procesarFoto()">
+            </label>
+            <div class="flex gap-3">
+                <button onclick="cerrarModal()" class="flex-1 py-4 rounded-2xl font-bold text-xs uppercase text-slate-600 border border-black/10">Cancelar</button>
+                <button onclick="confirmarRecepcion()" id="btn-certificar" class="flex-1 btn-gradient py-4 rounded-2xl font-bold text-xs">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl text-xs font-bold z-[200] opacity-0 pointer-events-none flex items-center gap-2">
+        <i class="fa-solid fa-circle-info text-amber-500"></i> <span id="toast-msg">Mensaje</span>
+    </div>
+
+    <script type="module" src="script.min.js"></script>
+
+</body>
+</html>
